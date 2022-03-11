@@ -29,7 +29,7 @@ Route::get('/', function () {
 });
 
 Route::get('author', function () {
-    $response = Http::withOptions(['timeout' => 3])->get('https://api.github.com/users/Jiannei');
+    $response = Http::withOptions(['timeout' => 30])->get('https://api.github.com/users/Jiannei');
     $response->throw();
 
     return Response::success($response->json());

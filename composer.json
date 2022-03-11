@@ -7,11 +7,12 @@
     "require": {
         "php": "^8.0",
         "ext-json": "*",
+        "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.3",
         "illuminate/redis": "^9.4",
         "jiannei/laravel-enum": "^3.0",
         "jiannei/laravel-logger": "^1.2",
-        "jiannei/laravel-response": "^4.0",
+        "jiannei/laravel-response": "^4.2",
         "laravel/lumen-framework": "^9.0",
         "league/fractal": "^0.20",
         "php-open-source-saver/jwt-auth": "^1.4",

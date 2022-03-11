@@ -84,6 +84,7 @@ $app->configure('repository');
 $app->configure('enum');
 $app->configure('permission');
 $app->configure('response');
+$app->configure('cors');
 
 $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 
@@ -142,6 +143,7 @@ $app->register(\Spatie\Permission\PermissionServiceProvider::class);
 $app->register(\Jiannei\Enum\Laravel\Providers\LumenServiceProvider::class);
 $app->register(\Jiannei\Response\Laravel\Providers\LumenServiceProvider::class);
 $app->register(\Jiannei\Logger\Laravel\Providers\ServiceProvider::class);
+$app->register(\Fruitcake\Cors\CorsServiceProvider::class);
 
 /*
  * Custom Service Providers.
