@@ -2,23 +2,25 @@
 
 namespace App\Http\Middleware;
 
+use App\Repositories\Enums\ResponseCodeEnum;
 use Closure;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Auth\Factory as Auth;
+use Illuminate\Http\Request;
 
 class Authenticate
 {
     /**
      * The authentication guard factory instance.
      *
-     * @var \Illuminate\Contracts\Auth\Factory
+     * @var Auth
      */
     protected $auth;
 
     /**
      * Create a new middleware instance.
      *
-     * @param  \Illuminate\Contracts\Auth\Factory  $auth
-     * @return void
+     * @param  Auth  $auth
      */
     public function __construct(Auth $auth)
     {
@@ -28,15 +30,17 @@ class Authenticate
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  Request  $request
+     * @param  Closure  $next
      * @param  string|null  $guard
      * @return mixed
+     *
+     * @throws AuthorizationException
      */
     public function handle($request, Closure $next, $guard = null)
     {
         if ($this->auth->guard($guard)->guest()) {
-            return response('Unauthorized.', 401);
+            abort(ResponseCodeEnum::HTTP_UNAUTHORIZED);
         }
 
         return $next($request);

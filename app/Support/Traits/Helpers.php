@@ -9,11 +9,8 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Events;
+namespace App\Support\Traits;
 
-use Illuminate\Queue\SerializesModels;
-
-abstract class Event
+trait Helpers
 {
-    use SerializesModels;
 }

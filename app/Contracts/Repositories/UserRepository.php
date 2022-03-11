@@ -9,11 +9,13 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Events;
+namespace App\Contracts\Repositories;
 
-use Illuminate\Queue\SerializesModels;
+use Prettus\Repository\Contracts\RepositoryInterface;
 
-abstract class Event
+/**
+ * Interface UserRepository.
+ */
+interface UserRepository extends RepositoryInterface
 {
-    use SerializesModels;
 }
